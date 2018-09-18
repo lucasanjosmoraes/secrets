@@ -1,6 +1,6 @@
 # Secrets
 
-Setup local de um Vault, cujos dados são guardados num Consul, com demonstração de gerenciamento de segredos em um servidor back-end AWS
+Setup local de um Vault, cujos dados são guardados num Consul, com demonstração de gerenciamento de segredos em um servidor back-end AWS. Todo este setup é uma síntese do artigo publicado por Michael Herman, no link: https://testdriven.io/managing-secrets-with-vault-and-consul
 
 ### Setup:
 
