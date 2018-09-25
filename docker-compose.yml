@@ -5,6 +5,9 @@ services:
     build:
       context: ./vault
       dockerfile: Dockerfile
+    networks:
+      - services
+      - default
     ports:
       - 8200:8200
     volumes:
