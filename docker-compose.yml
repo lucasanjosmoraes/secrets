@@ -43,3 +43,6 @@ services:
       - ./consul/config/consul-config.json:/consul/config/config.json
     depends_on:
       - consul
+
+networks:
+  services:
