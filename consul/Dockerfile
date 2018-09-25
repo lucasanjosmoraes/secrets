@@ -1,8 +1,8 @@
 # base image
-FROM alpine:3.8
+FROM alpine:3.7
 
 # set consul version
-ENV CONSUL_VERSION 1.2.3
+ENV CONSUL_VERSION 1.2.1
 
 # create a new directory
 RUN mkdir /consul
