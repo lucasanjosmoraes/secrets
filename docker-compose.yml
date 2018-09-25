@@ -2,6 +2,7 @@ version: '3.4'
 
 services:
   vault:
+    name: vault-deployment
     build:
       context: ./vault
       dockerfile: Dockerfile
