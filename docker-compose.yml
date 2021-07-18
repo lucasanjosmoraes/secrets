@@ -1,11 +1,8 @@
-version: '3.6'
+version: '3.8'
 
 services:
-
   vault:
-    build:
-      context: ./vault
-      dockerfile: Dockerfile
+    image: vault
     ports:
       - 8200:8200
     volumes:
@@ -15,28 +12,24 @@ services:
       - ./vault/logs:/vault/logs
     environment:
       - VAULT_ADDR=http://127.0.0.1:8200
-    command: server -config=/vault/config/vault-config.json
+    command: server
     cap_add:
       - IPC_LOCK
     depends_on:
       - consul
 
   consul:
-    build:
-      context: ./consul
-      dockerfile: Dockerfile
+    image: consul
     ports:
       - 8500:8500
-    command: agent -server -bind 0.0.0.0 -client 0.0.0.0 -bootstrap-expect 1 -config-file=/consul/config/config.json
+    command: agent -server -bind 0.0.0.0 -client 0.0.0.0 -bootstrap-expect 1
     volumes:
       - ./consul/config/consul-config.json:/consul/config/config.json
       - ./consul/data:/consul/data
 
   consul-worker:
-    build:
-      context: ./consul
-      dockerfile: Dockerfile
-    command: agent -server -join consul -config-file=/consul/config/config.json
+    image: consul
+    command: agent -server -join consul
     volumes:
       - ./consul/config/consul-config.json:/consul/config/config.json
     depends_on:
